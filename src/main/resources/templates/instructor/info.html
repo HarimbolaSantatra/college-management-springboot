@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout.html}">
+<head>
+    <title>Instructor Information</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1> Instructor Information </h1>
+    <div>
+        <h2> Information for Mr/Mrs. <span th:text="${instructor.name}"></span> </h2>
+        Subject taught:
+        <ul>
+            <li th:each="subject : ${subjectTaught}" th:text="${subject.name}"></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Page</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1> Course </h1>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Course</th>
+            <th></th>
+        </tr>
+        <tr th:each="course : ${courseList} ">
+            <td th:text="${course.id}"></td>
+            <td th:text="${course.name}"></td>
+            <td> 
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a class="btn btn-outline-primary" th:href="@{/course-info(id=${course.id})}"> Detail </a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        Delete
+                    </button>
+                </div>
+            </td>
+        </tr>
+        
+    </table>
+</div>
+    
+</body>
+</html>

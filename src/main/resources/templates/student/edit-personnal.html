@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout.html}">
+<head>
+    <title>Edit Student</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1> Edit Student </h1>
+    <div>
+        <h2> Information </h2>
+        <form action="/student-edit-personnal" method="post">
+            <input type="hidden" th:value="${student.id}" name="studentId">
+            <div class="row">
+                <div class="col-5">
+                    Course:
+                </div>
+                <div class="col-7">
+                    <select class="form-select" name="course">
+                        <option th:each="course : ${courseList}" th:text="${course.name}"
+                        th:value="${course.id}"
+                        ></option>
+                      </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    First Name:
+                </div>
+                <div class="col-7">
+                    <input class="form-control" type="text" placeholder="Nom" name="firstName"
+                    th:value="${student.firstName}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    Last Name:
+                </div>
+                <div class="col-7">
+                    <input class="form-control" type="text" placeholder="Prénom" name="lastName"
+                    th:value="${student.lastName}"/>
+                </div>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Save">
+            <button class="btn btn-secondary" onClick="history.back()"> Exit </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

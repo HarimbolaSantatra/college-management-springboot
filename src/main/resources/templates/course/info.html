@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout.html}">
+<head>
+    <title>Course Information</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1> Course Information </h1>
+    <div class="d-flex justify-content-around">
+        <h2> Information: <span th:text="${course.name}"></span> </h2>
+        <button href="export-pdf" class="btn btn-outline-info"> Exporter en PDF </button>
+    </div>
+    <hr>
+    <div>
+        <h2>Subject List</h2>
+        <table class="table">
+            <tr>
+                <th> Name </th>
+                <th> Credit </th>
+                <th> Instructor </th>
+            </tr>
+            <tr th:each="subject : ${subjectList}" >
+                <td th:text="${subject.name}"></td>
+                <td th:text="${subject.credit}"></td>
+                <td th:text="${subject.instructor.name}"></td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <div>
+        <h2> Student's list</h2>
+        <table class="table">
+            <tr>
+                <th> First Name </th>
+                <th> Last Name </th>
+            </tr>
+            <tr th:each="student : ${studentList}" >
+                <td th:text="${student.firstName}"></td>
+                <td th:text="${student.lastName}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

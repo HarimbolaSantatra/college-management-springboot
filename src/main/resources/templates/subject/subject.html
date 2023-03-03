@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Page</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1> Subject </h1>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            <th>Credit</th>
+            <th>Instructor</th>
+            <th></th>
+        </tr>
+        <tr th:each="subject : ${subjectList} ">
+            <td th:text="${subject.id}"></td>
+            <td th:text="${subject.name}"></td>
+            <td th:text="${subject.credit}"></td>
+            <td th:text="${subject.instructor.name}"></td>
+            <td> 
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a class="btn btn-outline-primary" th:href="@{/subject-info(id=${subject.id})}"> Detail </a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        Delete
+                    </button>
+                </div>
+            </td>
+        </tr>
+        
+    </table>
+</div>
+    
+</body>
+</html>

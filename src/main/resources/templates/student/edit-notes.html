@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout.html}">
+<head>
+    <title>Edit Student</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1> Edit Student's Grades</h1>
+    <div>
+        <form action="/student-edit-notes" method="post">
+            <input type="hidden" name="studentId" th:value="${studentInfo.student.id}">
+            <table class="table">
+                <tr>
+                    <th> Matière </th>
+                    <th> Note </th>
+                    <th> Credit </th>
+                    <th> Note Final </th>
+                </tr>
+                <tr th:each="ssi : ${studentInfo.studentSubjectInfos}" >
+                    <td th:text="${ssi.subject.name}"> </td>
+                    <td>
+                        <input type="number" th:value="${ssi.grade}"
+                        th:name="${ssi.subject.name.toLowerCase()}">
+                    </td>
+                    <td th:text="${ssi.subject.credit}"> </td>
+                    <td th:text="${ssi.getFinalGrade()}"> </td>
+                </tr>
+                <tr> 
+                    <td> Moyenne </td>
+                    <td></td>
+                    <td></td>
+                    <th th:text="${studentInfo.getAverageGrade()}"> </th>
+                </tr>
+            </table>
+            <input class="btn btn-primary" type="submit" value="Save">
+            <button class="btn btn-secondary" onClick="history.back()">Cancel</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

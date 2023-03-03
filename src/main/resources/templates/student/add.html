@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout.html}">
+<head>
+    <title> Add Student </title>
+    
+</head>
+<body>
+<div layout:fragment="content">
+    <form action="/student-add" method="post">
+        <div class="row">
+            <div class="col-5">
+                First Name:
+            </div>
+            <div class="col-7">
+                <input class="form-control" type="text" placeholder="Nom" name="firstName"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                Last Name:
+            </div>
+            <div class="col-7">
+                <input class="form-control" type="text" placeholder="Prénom" name="lastName"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                Course:
+            </div>
+            <div class="col-7">
+                <select class="form-select" name="course">
+                    <option th:each="course : ${courseList}" th:value="${course.id}"
+                    th:text="${course.name}"
+                    >
+                    </option>
+                  </select>
+            </div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Save">
+        <input class="btn btn-secondary" type="reset" value="Reset">
+    </form>
+    
+</div>
+</body>
+</html>

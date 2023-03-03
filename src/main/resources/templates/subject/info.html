@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout.html}">
+<head>
+    <title>Subject Information</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1> Subject Information </h1>
+    <div>
+        <h2> Information</h2>
+        <p> <b> Name: </b><span th:text="${subject.name} "></span></p>
+        <p> <b> Credit: </b><span th:text="${subject.credit}"></span></p>
+        <p> <b> Instructor: </b><span th:text="${subject.instructor.name}"></span></p>
+        <p> <b> Course that contains it: </b></p>
+        <ul>
+            <li th:each=" course : ${courseList}" th:text="${course.name}"></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

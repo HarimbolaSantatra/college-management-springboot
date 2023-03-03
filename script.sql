@@ -1,0 +1,1 @@
+UPDATE subject SET name=LOWER(name);
