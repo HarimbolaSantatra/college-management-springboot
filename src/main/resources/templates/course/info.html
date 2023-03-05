@@ -8,7 +8,10 @@
     <h1> Course Information </h1>
     <div class="d-flex justify-content-around">
         <h2> Information: <span th:text="${course.name}"></span> </h2>
-        <button href="export-pdf" class="btn btn-outline-info"> Exporter en PDF </button>
+        <form action="/pdf/course-info" method="post">
+            <input type="hidden" name="courseId" th:value="${course.id}">
+            <input type="submit" value="Exporter en PDF" class="btn btn-outline-primary">
+        </form>
     </div>
     <hr>
     <div>
