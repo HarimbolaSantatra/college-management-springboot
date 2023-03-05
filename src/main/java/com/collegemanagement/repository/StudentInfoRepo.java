@@ -18,7 +18,7 @@ import com.collegemanagement.model.*;
 public class StudentInfoRepo extends BaseRepository{
     private Connection _conn = null;
 
-	public StudentInfo fetchStudentInfo(int studentId) throws SQLException {
+	public StudentInfo fetch(int studentId) throws SQLException {
         StudentSubjectInfoRepo ssiRep = new StudentSubjectInfoRepo();
         List<StudentSubjectInfo> ssi = ssiRep.fetchStudentSSI(studentId);
         StudentInfo studInfo = new StudentInfo(ssi.get(0).id, ssi.get(0).student);
@@ -26,7 +26,7 @@ public class StudentInfoRepo extends BaseRepository{
         return studInfo;
     }
     
-    public void editStudentInfo(int studentId, Map<String, String> subjectNotePair) throws SQLException {
+    public void edit(int studentId, Map<String, String> subjectNotePair) throws SQLException {
         _conn = openConnection();
         Statement stmt = _conn.createStatement();
         

@@ -10,7 +10,7 @@ public class CourseInfo{
     public int id;
     public Course course;
     public List<Subject> subjects;
-    public List<StudentInfo> StudentInfo;
+    public List<StudentInfo> studentInfos;
 
     public CourseInfo(int id, Course course){
         this.id = id;
@@ -18,7 +18,7 @@ public class CourseInfo{
     }
 
     public void setStudentInfos(List<StudentInfo> studentInfos){
-        this.StudentInfo = StudentInfo;
+        this.studentInfos = studentInfos;
     }
 
     public void setSubjectList(List<Subject> subjects){

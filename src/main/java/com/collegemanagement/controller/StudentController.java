@@ -36,7 +36,7 @@ public class StudentController{
     public String studentInfo(@RequestParam int id, Model model) throws SQLException {
         // Get StudentInfos | id is the student's id
         StudentInfoRepo studentInfoRepo = new StudentInfoRepo();
-        StudentInfo studentInfo = studentInfoRepo.fetchStudentInfo(id);
+        StudentInfo studentInfo = studentInfoRepo.fetch(id);
         model.addAttribute("studentInfo", studentInfo);
         return "student/info";
     }
@@ -99,7 +99,7 @@ public class StudentController{
     throws SQLException {
         // Get StudentInfos | id is the student's id
         StudentInfoRepo studentInfoRepo = new StudentInfoRepo();
-        StudentInfo studentInfo = studentInfoRepo.fetchStudentInfo(id);
+        StudentInfo studentInfo = studentInfoRepo.fetch(id);
         model.addAttribute("studentInfo", studentInfo);
         return "student/edit-notes";
     }
@@ -113,7 +113,7 @@ public class StudentController{
         int studentId = Integer.parseInt(allParam.get("studentId"));
         allParam.remove("studentId");
         StudentInfoRepo studentInfoRepo = new StudentInfoRepo();
-        studentInfoRepo.editStudentInfo(studentId, allParam);
+        studentInfoRepo.edit(studentId, allParam);
         return "redirect:/student-info?id=" + studentId;
     }
 }

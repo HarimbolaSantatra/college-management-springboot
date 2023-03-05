@@ -57,23 +57,4 @@ public class CourseController{
         return "course/info";
     }
 
-    @GetMapping("/course-info/export-pdf")
-    public String courseInfo(@RequestParam(name="id") int courseId, Model model) throws SQLException {
-        CourseRepo rep = new CourseRepo();
-        Course course = rep.fetch(id);
-        model.addAttribute("course", course);
-
-        // Fetch student List
-        StudentRepo studRep = new StudentRepo();
-        List<Student> studentList = studRep.fetchByCourse(id);
-        model.addAttribute("studentList", studentList);
-
-        // Fetch Subject List
-        SubjectRepo subjRep = new SubjectRepo();
-        List<Subject> subjectList = subjRep.fetchByCourse(id);
-        model.addAttribute("subjectList", subjectList);
-
-        return "redirect:/course-info?id=" + courseId; 
-    }
-
 }
