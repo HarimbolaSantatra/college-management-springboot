@@ -43,8 +43,7 @@ public class HomeController{
         // PdfGenerator pdfGenerator = new PdfGenerator();
         // pdfGenerator.generateCourseInfoTable(courseInfo);
 
-        // return "redirect:/course";
-        return 
+        return "redirect:/course";
     }
 
 }
