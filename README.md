@@ -21,6 +21,7 @@ This is the UML Class diagram.
 You need [Java SDK v17][1] or higher and to install the [spring framework][2].
 
 Run the application with
+
 	./mvnw spring-boot:run
 
 # Issues
